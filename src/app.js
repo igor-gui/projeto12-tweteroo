@@ -1,6 +1,5 @@
 import express from "express";
 import cors from 'cors'
-import postUser from "./Controllers/postUser.controller.js";
 
 const server = express()
 server.use(express.json())
@@ -82,4 +81,4 @@ server.get('/tweets', (req, res) => {
 
 const PORT = 5000
 
-server.listen(PORT, console.log(`O server está funcionando na porta ${PORT}`))
+server.listen(PORT, console.log(`O server está rodando na porta ${PORT}`))
