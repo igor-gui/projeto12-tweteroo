@@ -26,37 +26,7 @@ server.get('/sign-up', (req, res) => {
     res.send(users)
 })
 
-server.post('/tweets', (req, res) => {
-    const result = "OK"
 
-    const { username, tweet } = req.body
-    if (!username || !tweet) {
-        result = "Nãoooo"
-        res.status(400).send({ message: result })
-
-    } else {
-        const user = users.find((e) => e.username === username)
-
-        const tuite = {
-            username: username,
-            avatar: user.avatar,
-            tweet: tweet
-        }
-        tweets.push(tuite)
-        res.status(200).send({ message: result })
-
-        const twits = []
-        for (let i = tweets.length - 10; i < tweets.length; i++) {
-            twits.push(tweets[i])
-        }
-
-        if (tweets.length >= 10) {
-            res.send(twits)
-        } else {
-            res.send(tweets)
-        }
-    }
-})
 
 const PORT = 5000
 
