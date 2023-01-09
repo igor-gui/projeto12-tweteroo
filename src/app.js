@@ -61,6 +61,23 @@ server.post('/tweets', (req, res) => {
     }
 })
 
+server.get('/tweets', (req, res) => {
+    const twits = []
+
+
+    for (let i = tweets.length - 10; i < tweets.length; i++) {
+        twits.push(tweets[i])
+    }
+
+    //  Últimos 10 tweets
+
+    if (tweets.length >= 10) {
+        res.send(twits)
+    } else {
+        res.send(tweets)
+    }
+})
+
 
 
 const PORT = 5000
