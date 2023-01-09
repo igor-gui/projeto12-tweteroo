@@ -4,7 +4,6 @@ import cors from 'cors'
 const server = express()
 server.use(express.json())
 server.use(cors())
-
 const users = []
 const tweets = []
 
@@ -26,7 +25,7 @@ server.get('/sign-up', (req, res) => {
 })
 
 server.post('/tweets', (req, res) => {
-    const result = "OK"
+    let result = "OK"
 
     const { username, tweet } = req.body
     if (!username || !tweet) {
