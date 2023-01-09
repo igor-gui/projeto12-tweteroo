@@ -28,12 +28,13 @@ server.post('/tweets', (req, res) => {
     let result = "OK"
 
     const { username, tweet } = req.body
-    if (!username || !tweet) {
+    const user = users.find((e) => e.username === username)
+
+    if (!user) {
         result = "UNAUTHORIZED"
         res.status(400).send({ message: result })
 
     } else {
-        const user = users.find((e) => e.username === username)
         const twits = []
 
         const tuite = {
