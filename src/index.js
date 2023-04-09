@@ -38,7 +38,7 @@ app.post('/tweets', (req, res) => {
         const tuite = {
             username: username,
             avatar: user.avatar,
-            tweet: tweet
+            tweet
         }
 
         tweets.push(tuite)
@@ -57,3 +57,23 @@ app.post('/tweets', (req, res) => {
         }
     }
 })
+
+app.get('/tweets', (req, res) => {
+    const twits = []
+
+    for (let i = tweets.length - 10; i < tweets.length; i++) {
+        twits.push(tweets[i])
+    }
+
+    //  Últimos 10 tweets
+
+    if (tweets.length >= 10) {
+        res.send(twits)
+    } else {
+        res.send(tweets)
+    } 
+})
+
+const PORT = 5000
+
+app.listen(PORT, console.log(`O server está rodando na porta ${PORT}`))
